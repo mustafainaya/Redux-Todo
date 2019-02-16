@@ -1,28 +1,25 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { connect } from 'react-redux';
+import TodoList from './components/TodoList';
+import TodoInput from './components/TodoInput';
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+	render() {
+		return (
+			<div className="App">
+				<h1>{this.props.appTitle}</h1>
+				<TodoList />
+				<TodoInput />
+			</div>
+		);
+	}
 }
 
-export default App;
+const mapStateToProps = (state) => {
+	return {
+		appTitle: state.title,
+		todos: state.todos
+	};
+};
+
+export default connect(mapStateToProps)(App);

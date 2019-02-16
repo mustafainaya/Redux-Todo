@@ -7,7 +7,7 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
-				<h1>{this.props.appTitle}</h1>
+				<h1>{this.props.appTitle} Redux Todo List :)</h1>
 				<TodoList />
 				<TodoInput />
 			</div>
